@@ -190,9 +190,25 @@ sub addHeader {
     my $self = shift;
     my $header = shift;
     my $value = shift;
-    
+
     my $headers = $self->{'_headers'} || {};
     $headers->{$header} = $value;
+    $self->{'_headers'} = $headers;
+    return;
+}
+
+=head3 deleteHeader ( $header_name )
+
+Remove a custom header from requests made by this client.
+
+=cut
+
+sub deleteHeader {
+    my $self = shift;
+    my $header = shift;
+
+    my $headers = $self->{'_headers'} || {};
+    delete $headers->{$header} if(exists($headers->{$header}));
     $self->{'_headers'} = $headers;
     return;
 }
