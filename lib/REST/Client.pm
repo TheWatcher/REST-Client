@@ -81,7 +81,7 @@ use 5.008_000;
 use constant TRUE => 1;
 use constant FALSE => 0;
 
-our ($VERSION) = ('$Rev: 273 $' =~ /(\d+)/);
+our $VERSION = '0.273.1';
 
 use URI;
 use LWP::UserAgent;
